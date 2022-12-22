@@ -30,13 +30,16 @@ const BsState = (props) => {
   // handling post request to save booking details on the backend
   const handlePostBooking = async () => {
     // Sending api request to backend with user selected movie, slot and seats to book movie.
-    const response = await fetch(`/api/booking`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ movie: movie, slot: time, seats: noOfSeat }),
-    });
+    const response = await fetch(
+      `https://bookmyshow-api.onrender.com/api/booking`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ movie: movie, slot: time, seats: noOfSeat }),
+      }
+    );
 
     const data = await response.json();
 
@@ -65,9 +68,12 @@ const BsState = (props) => {
 
   //handle get request to get the last booking details from backend
   const handleGetLastBooking = async () => {
-    const response = await fetch(`/api/booking`, {
-      method: "GET",
-    });
+    const response = await fetch(
+      `https://bookmyshow-api.onrender.com/api/booking`,
+      {
+        method: "GET",
+      }
+    );
 
     const data = await response.json();
 
