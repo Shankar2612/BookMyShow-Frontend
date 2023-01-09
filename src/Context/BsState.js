@@ -87,9 +87,13 @@ const BsState = (props) => {
     const slot = window.localStorage.getItem("slot");
     const seats = JSON.parse(window.localStorage.getItem("seats"));
 
-    if (movie || slot || seats) {
-      changeTime(slot);
+    if(movie){
       changeMovie(movie);
+    }
+    if(slot){
+      changeTime(slot);
+    }
+    if(seats){
       changeNoOfSeats(seats);
     }
   }, []);
